@@ -1,0 +1,128 @@
+.btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+
+.btn--primary {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  text-align: center;
+}
+
+.btn--primary:hover {
+  background-color: #1e40af;
+}
+
+.btn--outline {
+  border: 2px;
+  border-radius: 0.3rem;
+  color: white;
+  background-color: var(--primary);
+  text-align: center;
+}
+
+.btn--secundary {
+  background-color: var(--secondary);
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+}
+
+.btn--outline:hover {
+  background-color: white;
+  color: #1e3a8a;
+}
+
+.card .btn {
+  display: block;
+  margin-top: 1rem auto 0 auto;
+}
+
+.hero__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.features__grid {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.features__image {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  justify-content: center;
+}
+
+.features__image img {
+  width: 100%;
+  max-width: 350px;
+  border-radius: 1rem;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.features__list {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.feature-card {
+  display: flex;
+  gap: 1rem;
+  background-color: white;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  border-left: 4px solid var(--primary);
+  align-items: flex-start;
+}
+
+.feature-card i {
+  color: var(--primary);
+  margin-top: 0.25rem;
+  font-size: 1.2rem;
+}
+
+.feature-card h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+  color: #334155;
+  margin-top: 0.25rem;
+}
+
+.feature-card--active {
+  background-color: var(--primary);
+  color: white;
+  border-left: none;
+}
+
+.feature-card--active h3,
+.feature-card--active p {
+  color: white;
+}
+
+.feature-card--active i {
+  color: white;
+}

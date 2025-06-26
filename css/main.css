@@ -1,0 +1,9 @@
+:root {
+  --primary: #4f8ef5;
+  --secondary: #0e2566;
+  --background: #f9fafb;
+  --light-blue: #dbeafe;
+  --white: #fff;
+  --radius: 0.5rem;
+  --transition: all 0.3s ease;
+}
