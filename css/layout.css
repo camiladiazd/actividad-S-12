@@ -9,9 +9,10 @@ body {
 }
 
 .header {
-  background-color: #e6efff;
-  padding: 0.8rem 0;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  background: transparent;
+  box-shadow: none;
+  margin: 10px;
+  border-radius: 0;
 }
 
 .header__content {
@@ -74,6 +75,9 @@ body {
 }
 
 .hero {
+  margin-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
   background: linear-gradient(130deg, #2563eb, #14b8a6);
   color: white;
   padding: 0;
