@@ -28,25 +28,75 @@
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero__content">
-      <div class="hero__text">
-        <h1>Tu vida, simplificada en la palma de tu mano</h1>
-        <p>Con TraceApp, puedes llevar un control detallado de tus finanzas personales de manera fácil y rápida.</p>
-        <div class="hero__buttons">
-          <a href="#" class="btn btn--primary">Ver demo <i class="fa-regular fa-circle-play" style="color: #ffffff;"></i></a>
+    <section class="hero">
+        <div class="hero__wrapper">
+            <div class="container hero__content">
+            <div class="hero__text">
+                <h1>Tu vida, simplificada en la palma de tu mano</h1>
+                <p>Con TraceApp, puedes llevar un control detallado de tus finanzas personales de manera fácil y rápida.</p>
+                <div class="hero__buttons">
+                <a href="#" class="btn btn--primary">Ver demo <i class="fa-regular fa-circle-play" style="color: #ffffff;"></i></a>
+                <a href="#" class="btn btn--secundary">Descargar <i class="fa-solid fa-download" style="color: #ffffff;"></i></a>
+                </div>
+                <div class="hero__stats">
+                <p><i class="fa-solid fa-users-line fa-xl" style="color: #ffffff;"></i> +200,000 usuarios &nbsp; | &nbsp;<i class="fa-solid fa-earth-americas fa-xl" style="color: #ffffff;"></i> +50 países </p>
+                </div>
+            </div>
+            <div class="hero__image">
+                <div class="hero__image-bg"></div>
+                <div class="carousel">
+                <div class="carousel__track-container">
+                    <ul class="carousel__track">
+                    <li class="carousel__slide carousel__slide--current">
+                        <img src="IMG/1.png" alt="Imagen de la app 1" />
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="IMG/2.png" alt="Imagen de la app 2" />
+                    </li>
+                    <li class="carousel__slide">
+                        <img src="IMG/3.png" alt="Imagen de la app 3" />
+                    </li>
+                    </ul>
+                </div>
+                <div class="carousel__indicators">
+                    <span class="carousel__indicator carousel__indicator--active"></span>
+                    <span class="carousel__indicator"></span>
+                    <span class="carousel__indicator"></span>
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+    <script>
+    const track = document.querySelector('.carousel__track');
+    const slides = Array.from(track.children);
+    const indicators = document.querySelectorAll('.carousel__indicator');
+    let currentIndex = 0;
+    let interval = null;
 
-          <a href="#" class="btn btn--secundary">Descargar <i class="fa-solid fa-download" style="color: #ffffff;"></i></a>
-        </div>
-        <div class="hero__stats">
-          <p><i class="fa-solid fa-users-line fa-xl" style="color: #ffffff;"></i> +200,000 usuarios &nbsp; | &nbsp;<i class="fa-solid fa-earth-americas fa-xl" style="color: #ffffff;"></i> +50 países </p>
-        </div>
-      </div>
-      <div class="hero__image">
-        <img src="IMG/1.png" alt="Imagen de la app" />
-      </div>
-    </div>
-  </section>
+    function updateCarousel(newIndex) {
+        slides[currentIndex].classList.remove('carousel__slide--current');
+        indicators[currentIndex].classList.remove('carousel__indicator--active');
+        slides[newIndex].classList.add('carousel__slide--current');
+        indicators[newIndex].classList.add('carousel__indicator--active');
+        track.style.transform = `translateX(-${newIndex * 100}%)`;
+        currentIndex = newIndex;
+    }
+
+    function nextSlide() {
+        const nextIndex = (currentIndex + 1) % slides.length;
+        updateCarousel(nextIndex);
+    }
+    interval = setInterval(nextSlide, 3000);
+    indicators.forEach((indicator, idx) => {
+        indicator.addEventListener('click', () => {
+        clearInterval(interval);
+        updateCarousel(idx);
+        interval = setInterval(nextSlide, 3000);
+        });
+    });
+    </script>
 
   <section class="features">
   <div class="container features__grid">
@@ -86,74 +136,77 @@
         </div>
     </section>
 
-<section class="pricing">
-  <div class="container">
-    <h2 class="features__title">Precios</h2>
-    <div class="pricing__cards">
-      
-      <div class="card">
-        <h3>Intro</h3>
-        <p class="price">$5 <span class="price__unit">USD /mes</span></p>
-        <p>Plan básico para proyectos hobby o prototipos</p>
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i> 1,000 Descargas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 1,000 Subidas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 1 GB de almacenamiento</li>
-        </ul>
-        <a href="#" class="btn btn--outline">Escoger Plan</a>
-      </div>
+    <section class="pricing">
+        <div class="container">
+            <h2 class="features__title">Precios</h2>
+            <div class="pricing__cards">
+            
+            <div class="card">
+                <h3>Intro</h3>
+                <p class="price">$5 <span class="price__unit">USD /mes</span></p>
+                <p>Plan básico para proyectos hobby o prototipos</p>
+                <ul>
+                <li><i class="fa-solid fa-circle-check"></i> 1,000 Descargas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 1,000 Subidas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 1 GB de almacenamiento</li>
+                </ul>
+                <a href="#" class="btn btn--outline">Escoger Plan</a>
+            </div>
 
-      <div class="card card--highlight">
-        <h3>Personal</h3>
-        <p class="price2">$10 <span class="price__unit">USD / mes</span></p>
-        <p>Plan personal para proyectos pequeños</p>
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i> 5,000 Descargas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 5,000 Subidas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 5 GB de almacenamiento</li>
-        </ul>
-        <a href="#" class="btn btn--primary">Escoger Plan</a>
-      </div>
+            <div class="card card--highlight">
+                <h3>Personal</h3>
+                <p class="price2">$10 <span class="price__unit">USD / mes</span></p>
+                <p>Plan personal para proyectos pequeños</p>
+                <ul>
+                <li><i class="fa-solid fa-circle-check"></i> 5,000 Descargas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 5,000 Subidas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 5 GB de almacenamiento</li>
+                </ul>
+                <a href="#" class="btn btn--primary">Escoger Plan</a>
+            </div>
 
-      <div class="card">
-        <h3>Profesional</h3>
-        <p class="price">$15 <span class="price__unit">USD / mes</span></p>
-        <p>Plan para proyectos profesionales o medianos</p>
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i> 15,000 Descargas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 10,000 Subidas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 15 GB de almacenamiento</li>
-        </ul>
-        <a href="#" class="btn btn--outline">Escoger Plan</a>
-      </div>
+            <div class="card">
+                <h3>Profesional</h3>
+                <p class="price">$15 <span class="price__unit">USD / mes</span></p>
+                <p>Plan para proyectos profesionales o medianos</p>
+                <ul>
+                <li><i class="fa-solid fa-circle-check"></i> 15,000 Descargas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 10,000 Subidas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 15 GB de almacenamiento</li>
+                </ul>
+                <a href="#" class="btn btn--outline">Escoger Plan</a>
+            </div>
 
-      <div class="card">
-        <h3>Ultimate</h3>
-        <p class="price">$30 <span>USD / mes</span></p>
-        <p>Plan para equipos y proyectos grandes</p>
-        <ul>
-          <li><i class="fa-solid fa-circle-check"></i> 40,000 Descargas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 40,000 Subidas</li>
-          <li><i class="fa-solid fa-circle-check"></i> 40 GB de almacenamiento</li>
-        </ul>
-        <a href="#" class="btn btn--outline">Escoger Plan</a>
-      </div>
+            <div class="card">
+                <h3>Ultimate</h3>
+                <p class="price">$30 <span>USD / mes</span></p>
+                <p>Plan para equipos y proyectos grandes</p>
+                <ul>
+                <li><i class="fa-solid fa-circle-check"></i> 40,000 Descargas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 40,000 Subidas</li>
+                <li><i class="fa-solid fa-circle-check"></i> 40 GB de almacenamiento</li>
+                </ul>
+                <a href="#" class="btn btn--outline">Escoger Plan</a>
+            </div>
 
-    </div>
-  </div>
-</section>
+            </div>
+        </div>
+    </section>
 
-  <footer class="footer">
-    <div class="container footer__content">
-      <div><img src="IMG/logo.svg" alt="Logo Trace" class="header__logo" />
-      <p>&copy; 2025 Trace. Todos los derechos reservados.</p></div>
-      <ul class="footer__links">
-        <li><a href="#">Términos y Condiciones</a></li>
-        <li><a href="#">Política de Privacidad</a></li>
-        <li><a href="#">Trabajos</a></li>
-        <li><a href="#">Soporte & Ayuda</a></li>
-      </ul>
-    </div>
-  </footer>
+    <footer class="footer">
+        <div class="container footer__content">
+        <div class="footer__brand">
+        <img src="IMG/logo.svg" alt="Logo Trace" class="footer__logo" />
+        <span class="footer__brandname"></span>
+        <p class="footer__copyright">&copy; 2025 Trace Todos los derechos reservados.</p>
+        </div>
+            <ul class="footer__links">
+                <li><a href="#">Términos y Condiciones</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Trabajos</a></li>
+                <li><a href="#">Soporte & Ayuda</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>
